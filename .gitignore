@@ -3,3 +3,4 @@
 /dist/*
 !/dist/.assetsignore
 node_modules
+.parcel-cache/**
