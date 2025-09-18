@@ -15142,34 +15142,79 @@ function App() {
                 lineNumber: 7,
                 columnNumber: 7
             }, this),
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
+                children: "This app demonstrates consuming remote RSC components at runtime!"
+            }, void 0, false, {
+                fileName: "client/client/App.tsx",
+                lineNumber: 8,
+                columnNumber: 7
+            }, this),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _react.Suspense), {
-                fallback: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _jsxDevRuntime.Fragment), {
-                    children: "Loading RSC"
-                }, void 0, false),
-                children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)(RSC, {}, void 0, false, {
+                fallback: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                    style: {
+                        padding: '20px',
+                        border: '1px dashed #ccc'
+                    },
+                    children: "Loading local RSC..."
+                }, void 0, false, {
                     fileName: "client/client/App.tsx",
-                    lineNumber: 9,
+                    lineNumber: 10,
+                    columnNumber: 27
+                }, void 0),
+                children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)(LocalRSC, {}, void 0, false, {
+                    fileName: "client/client/App.tsx",
+                    lineNumber: 11,
                     columnNumber: 9
                 }, this)
             }, void 0, false, {
                 fileName: "client/client/App.tsx",
-                lineNumber: 8,
+                lineNumber: 10,
+                columnNumber: 7
+            }, this),
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _react.Suspense), {
+                fallback: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                    style: {
+                        padding: '20px',
+                        border: '1px dashed #ccc'
+                    },
+                    children: "Loading remote weather..."
+                }, void 0, false, {
+                    fileName: "client/client/App.tsx",
+                    lineNumber: 14,
+                    columnNumber: 27
+                }, void 0),
+                children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)(RemoteWeather, {}, void 0, false, {
+                    fileName: "client/client/App.tsx",
+                    lineNumber: 15,
+                    columnNumber: 9
+                }, this)
+            }, void 0, false, {
+                fileName: "client/client/App.tsx",
+                lineNumber: 14,
                 columnNumber: 7
             }, this)
         ]
     }, void 0, true);
 }
 _c = App;
-let request = null;
-function RSC() {
+let localRequest = null;
+let weatherRequest = null;
+function LocalRSC() {
     // Simple cache to make sure we only fetch once.
-    request ??= (0, _client.fetchRSC)('http://localhost:3001');
-    return request;
+    localRequest ??= (0, _client.fetchRSC)('http://localhost:3001');
+    return localRequest;
 }
-_c1 = RSC;
-var _c, _c1;
+_c1 = LocalRSC;
+function RemoteWeather() {
+    // Fetch weather component from remote service
+    weatherRequest ??= (0, _client.fetchRSC)('http://localhost:8788/weather');
+    return weatherRequest;
+}
+_c2 = RemoteWeather;
+var _c, _c1, _c2;
 $RefreshReg$(_c, "App");
-$RefreshReg$(_c1, "RSC");
+$RefreshReg$(_c1, "LocalRSC");
+$RefreshReg$(_c2, "RemoteWeather");
 
   $parcel$ReactRefreshHelpers$ed1f.postlude(module);
 } finally {

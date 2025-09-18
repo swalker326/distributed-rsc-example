@@ -1,0 +1,17 @@
+{
+	"$schema": "../node_modules/wrangler/config-schema.json",
+  "compatibility_date": "2025-03-21",
+  "compatibility_flags": ["nodejs_compat"],
+  "main": "dist/server.js",
+  "no_bundle": true,
+  "base_dir": "dist",
+  "rules": [
+    {
+      "type": "ESModule",
+      "globs": ["**/*.js"]
+    }
+  ],
+  "dev": {
+    "port": 8788
+  }
+}

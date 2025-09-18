@@ -1,24 +1,19 @@
 {
-  "name": "parcel-rsc-client",
-  "version": "0.0.0",
+  "name": "remote-weather-service",
   "private": true,
-  "client": "dist/index.html",
+  "version": "0.0.0",
   "server": "dist/server.js",
+  "source": "src/server.tsx",
   "targets": {
-    "client": {
-      "source": "client/index.html",
-      "context": "react-client"
-    },
     "server": {
-      "source": "server/server.tsx",
       "context": "react-server",
-      "includeNodeModules": {
-        "express": false
-      }
+      "outputFormat": "esmodule"
     }
   },
   "scripts": {
-    "start": "parcel",
+    "clean": "rm -rf dist/{client,server*}",
+    "watch": "parcel watch",
+    "start": "wrangler dev",
     "build": "parcel build"
   },
   "dependencies": {
@@ -26,10 +21,11 @@
     "@parcel/runtime-rsc": "^2.15.4",
     "@types/react": "^19.1.13",
     "@types/react-dom": "^19.1.9",
-    "express": "^4.21.2",
     "parcel": "^2.15.4",
     "react": "^19.1.1",
     "react-dom": "^19.1.1",
-    "react-server-dom-parcel": "^19.1.1"
-  }
+    "react-server-dom-parcel": "^19.1.1",
+    "wrangler": "^4.4.0"
+  },
+  "packageManager": "pnpm@10.13.1"
 }
