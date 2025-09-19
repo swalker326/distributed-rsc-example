@@ -1,5 +1,6 @@
 "use server-entry";
 
+import React from "react";
 import "./page.css";
 import "./client";
 import { Counter } from "./Counter";
